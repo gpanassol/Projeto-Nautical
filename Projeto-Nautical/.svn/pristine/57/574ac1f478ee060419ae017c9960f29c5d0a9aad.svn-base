@@ -1,0 +1,252 @@
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Projeto
+{
+    public partial class FormCadastraFornecedor : Form
+    {
+        //VARIAVEIS GLOBAIS
+        private PoolConexoes pool = new PoolConexoes();
+        private ValidaFormulario valida = new ValidaFormulario();
+
+        public FormCadastraFornecedor()
+        {
+            InitializeComponent();
+        }
+
+        //METODO VERIFICA SE E NOVO FORNECEDOR OU ALTERACAO DE DADOS
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (buttonCadastrar.Text.Equals("Cadastrar"))
+            {
+                cadastrarFornecedor();
+            }
+            else if (buttonCadastrar.Text.Equals("Alterar"))
+            {
+                alterarDadosFornecedor();
+            }
+        }
+
+        //METODO VALIDA DADOS E CADASTRA FORNECEDOR
+        private void cadastrarFornecedor()
+        {
+            Fornecedor fornecedor = getFormFornecedor();
+            ArrayList mensagens = valida.validaFornecedor(fornecedor);
+
+            if (mensagens.Count > 0)
+            {
+                String mensagem = (String)mensagens[0];
+                MessageBox.Show(mensagem);
+            }
+            else
+            {
+                try
+                {
+                    bool insert = pool.insertFornecedor(fornecedor);
+
+                    if (insert)
+                    {
+                        MessageBox.Show("Cadastro salvo com sucesso.");
+                        limpar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao cadastro Fornecedor.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao cadastro Fornecedor.");
+                }
+            }
+        }
+
+        //METODO VERIFICA E REALIZA UPDATE NO CADASTRO DO FORNECEDOR
+        private void alterarDadosFornecedor()
+        {
+
+            Fornecedor fornecedor = pool.getFornecedor(textBoxCodFornecedor.Text);
+
+            Boolean isAlterar = isAlteracao(fornecedor);
+
+            if (isAlterar)
+            {
+
+                Fornecedor novoFornecedor = getFormFornecedor();
+
+                try
+                {
+                    bool insert = pool.updateFornecedor(novoFornecedor);
+
+                    if (insert)
+                    {
+                        MessageBox.Show("Cadastro alterado com sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao alterar Fornecedor.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao alterar Fornecedor.");
+                }
+            }
+
+        }
+
+        //METODO VALIDA CAMPOS ALTERADOS
+        private Boolean isAlteracao(Fornecedor fornecedor)
+        {
+            if(!fornecedor.CodFornecedor.Equals(textBoxCodFornecedor)){
+                return true;
+            }
+
+            if(!fornecedor.RazaoSocial.Equals(textBoxRazaoSocial)){
+                return true;
+            }
+
+            if(!fornecedor.Cnpj.Equals(textBoxCNPJ)){
+                return true;
+            }
+
+            if (!fornecedor.Telefone.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Endereco.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Numero.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Bairro.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Cidade.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Estado.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            if (!fornecedor.Cep.Equals(textBoxCNPJ))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        //METODO RETORNA INSTANCIA DE FORNECEDOR COM VALORES DOS CAMPOS DO FORM
+        private Fornecedor getFormFornecedor()
+        {
+            Fornecedor fornecedor = new Fornecedor();
+            fornecedor.CodFornecedor = textBoxCodFornecedor.Text;
+            fornecedor.RazaoSocial = textBoxRazaoSocial.Text;
+            fornecedor.Cnpj = textBoxCNPJ.Text;
+            fornecedor.Telefone = textBoxTelefone.Text;
+            fornecedor.Endereco = textBoxEndereco.Text;
+            fornecedor.Numero = textBoxNumEnd.Text;
+            fornecedor.Bairro = textBoxBairro.Text;
+            fornecedor.Cidade = textBoxCidade.Text;
+            fornecedor.Estado = textBoxEstado.Text;
+            fornecedor.Cep = textBoxCEP.Text;
+
+            return fornecedor;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!textBoxCodFornecedor.Text.Equals(""))
+            {
+                if (MessageBox.Show("Deseja realmente excluir Fornecedor?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) deletaFornecedor();
+            }
+        }
+
+        //DELETA CADASTRO FORNECEDOR
+        private void deletaFornecedor()
+        {
+            if (!textBoxCodFornecedor.Text.Equals(""))
+            {
+                bool isExcluido = pool.excluirFornecedor(textBoxCodFornecedor.Text);
+
+                if (isExcluido)
+                {
+                    MessageBox.Show("Cadastro Excluido com sucesso.");
+                    limpar();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir Fornecedor.");
+                }
+
+            }
+        }
+
+        //METODO LIMPA TODOS OS CAMPOS DO FORMULARIO
+        private void limpar()
+        {
+            textBoxCodFornecedor.Text = "";
+            textBoxRazaoSocial.Text = "";
+            textBoxCNPJ.Text = "";
+            textBoxTelefone.Text = "";
+            textBoxEndereco.Text = "";
+            textBoxNumEnd.Text = "";
+            textBoxBairro.Text = "";
+            textBoxCidade.Text = "";
+            textBoxEstado.Text = "";
+            textBoxCEP.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
+        private void textBoxCodFornecedor_Leave(object sender, EventArgs e)
+        {
+            if (!textBoxCodFornecedor.Text.Equals(""))
+            {
+                carregarFornecedorById(textBoxCodFornecedor.Text);
+            }
+        }
+
+        private void carregarFornecedorById(String codFornecedor)
+        {
+
+            Fornecedor fornecedor = pool.getFornecedor(codFornecedor);
+
+            if (fornecedor != null)
+            {
+                textBoxRazaoSocial.Text = fornecedor.RazaoSocial;
+                textBoxCNPJ.Text = fornecedor.Cnpj;
+                textBoxTelefone.Text = fornecedor.Telefone;
+                textBoxEndereco.Text = fornecedor.Endereco;
+                textBoxNumEnd.Text = fornecedor.Numero ;
+                textBoxBairro.Text = fornecedor.Bairro;
+                textBoxCidade.Text = fornecedor.Cidade;
+                textBoxEstado.Text = fornecedor.Estado;
+                textBoxCEP.Text = fornecedor.Cep;
+
+                buttonCadastrar.Text = "Alterar";
+            }
+        }
+    }
+}

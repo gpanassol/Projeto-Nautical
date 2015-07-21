@@ -1,0 +1,279 @@
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Projeto
+{
+    public partial class FormCadastroUsuario : Form
+    {
+        //VARIAVEIS GLOBAIS
+        private PoolConexoes pool = new PoolConexoes();
+        private ValidaFormulario valida = new ValidaFormulario();
+
+        public FormCadastroUsuario()
+        {
+            InitializeComponent();
+        }
+
+        //METODO PARA TRATAR CLICK DO BOTAO CADASTRAR/ALTERAR
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+            if (buttonCadastrar.Text.Equals("Cadastrar"))
+            {
+                cadastrarUsuario();
+            }
+            else if (buttonCadastrar.Text.Equals("Alterar"))
+            {
+                alterarDadosUsuarios();
+            }
+        }
+
+        //METODO PARA VERIFICA SE JA EXISTE O PARAMETRO MATRICULA INFORMADO
+        private void textBoxMatricula_Leave(object sender, EventArgs e)
+        {
+            if (textBoxMatricula != null && !textBoxMatricula.Text.Equals(""))
+            {
+                try
+                {
+
+                    Usuario usuario = pool.getUsuario(textBoxMatricula.Text);
+
+                    if (usuario != null)
+                    {
+                        textBoxNome.Text = usuario.Nome;
+                        textBoxEndereco.Text = usuario.Endereco;
+                        textBoxTelefone.Text = usuario.Telefone;
+                        textBoxRG.Text = usuario.Rg;
+                        textBoxCPF.Text = usuario.Cpf;
+                        comboBoxSexo.Text = usuario.Sexo;
+                        textBoxLogin.Text = usuario.Login;
+                        textBoxSenha.Text = usuario.Senha;
+                        comboBoxPermissao.Text = usuario.Permissao;
+
+                        buttonCadastrar.Text = "Alterar";
+                        textBoxMatricula.Enabled = false;
+                    }
+                    
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao carregar a Matricula: " + textBoxMatricula.Text);
+                }
+
+                
+            }
+        }
+
+        //METODO PARA CADASTRAR USUARIO
+        private void cadastrarUsuario()
+        {
+            if (textBoxSenha.Text.Equals(textBoxConfSenha.Text))
+            {
+                Usuario usuario = new Usuario();
+
+                usuario.Matricula = textBoxMatricula.Text;
+                usuario.Nome = textBoxNome.Text;
+                usuario.Endereco = textBoxEndereco.Text;
+                usuario.Telefone = textBoxTelefone.Text;
+                usuario.Rg = textBoxRG.Text;
+                usuario.Cpf = textBoxCPF.Text;
+                usuario.Sexo = comboBoxSexo.Text;
+                usuario.Login = textBoxLogin.Text;
+                usuario.Senha = textBoxSenha.Text;
+                usuario.Permissao = comboBoxPermissao.Text;
+                ArrayList mensagens = valida.validaUsuario(usuario);
+
+                if (mensagens.Count > 0)
+                {
+                    String mensagem = (String)mensagens[0];
+                    MessageBox.Show(mensagem);
+                }
+                else
+                {
+                    try
+                    {
+                        bool insert = pool.insertUsuario(usuario);
+
+                        if (insert)
+                        {
+                            MessageBox.Show("Cadastro salvo com sucesso.");
+                            limpar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao cadastro usuario.");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Erro ao cadastro usuario.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Senhas estão diferentes.");
+            }
+        }
+
+        //METODO VERIFICA ALTERACOES NO CADASTRO ATUAL
+        private void alterarDadosUsuarios()
+        {
+
+            Usuario usuario = pool.getUsuario(textBoxMatricula.Text);
+
+            Boolean isAlterar = isAlteracao(usuario);
+
+            if (isAlterar)
+            {
+                Usuario novoUsuario = new Usuario();
+
+                novoUsuario.Matricula = textBoxMatricula.Text;
+                novoUsuario.Nome = textBoxNome.Text;
+                novoUsuario.Endereco = textBoxEndereco.Text;
+                novoUsuario.Telefone = textBoxTelefone.Text;
+                novoUsuario.Rg = textBoxRG.Text;
+                novoUsuario.Cpf = textBoxCPF.Text;
+                novoUsuario.Sexo = comboBoxSexo.Text;
+                novoUsuario.Login = textBoxLogin.Text;
+                novoUsuario.Senha = textBoxSenha.Text;
+                novoUsuario.Permissao = comboBoxPermissao.Text;
+                try
+                {
+                    bool insert = pool.updateUsuario(novoUsuario);
+
+                    if (insert)
+                    {
+                        MessageBox.Show("Cadastro alterado com sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao alterar usuario.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao alterar usuario.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Não houve alterações.");
+            }
+
+        }
+
+        //METODO RETORNA BOOLEANO SOBRE ALTERACOES NOS CAMPOS
+        private Boolean isAlteracao(Usuario usuario)
+        {
+            if (!usuario.Matricula.Equals(textBoxMatricula.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Nome.Equals(textBoxNome.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Endereco.Equals(textBoxEndereco.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Telefone.Equals(textBoxTelefone.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Rg.Equals(textBoxRG.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Cpf.Equals(textBoxCPF.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Sexo.Equals(comboBoxSexo.Text))
+            {
+                return true;
+            }
+
+            if (!usuario.Login.Equals(textBoxLogin.Text))
+            {
+                return true;
+            }
+
+            if( !usuario.Senha.Equals(textBoxSenha.Text))
+            {
+                return true;
+            }
+            
+            if( !usuario.Permissao.Equals(comboBoxPermissao.Text))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
+        private void limpar()
+        {
+            textBoxMatricula.Text = "";
+            textBoxNome.Text = "";
+            textBoxEndereco.Text = "";
+            textBoxTelefone.Text = "";
+            textBoxRG.Text = "";
+            textBoxCPF.Text = "";
+            comboBoxSexo.Text = "";
+            textBoxLogin.Text = "";
+            textBoxSenha.Text = "";
+            comboBoxPermissao.Text = "";
+
+            buttonCadastrar.Text = "Cadastrar";
+
+            textBoxMatricula.Enabled = true;
+
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            if (!textBoxMatricula.Text.Equals(""))
+            {
+                if (MessageBox.Show("Deseja realmente excluir Usuario?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) excluirUsuario();
+            }
+        }
+
+        private void excluirUsuario()
+        {
+            if (!textBoxMatricula.Text.Equals(""))
+            {
+                bool isExcluido = pool.excluirUsuario(textBoxMatricula.Text);
+
+                if (isExcluido)
+                {
+                    MessageBox.Show("Cadastro Excluido com sucesso.");
+                    limpar();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao Excluido com sucesso.");
+                }
+
+            }
+        }
+
+    }
+}

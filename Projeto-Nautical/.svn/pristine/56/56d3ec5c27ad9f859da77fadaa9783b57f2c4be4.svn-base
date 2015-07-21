@@ -1,0 +1,196 @@
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Projeto
+{
+    public partial class FormCadastraProduto : Form
+    {
+
+        private PoolConexoes conexoes = new PoolConexoes();
+        private ValidaFormulario valida = new ValidaFormulario();
+
+        public FormCadastraProduto()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonCadastrar_Click(object sender, EventArgs e)
+        {
+            if (buttonCadastrar.Text.Equals("Cadastrar"))
+            {
+                cadastrarProduto();
+            }
+            else if (buttonCadastrar.Text.Equals("Alterar"))
+            {
+                updateProduto();
+            }
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            limpa();
+        }
+
+        private void textBoxCodProduto_Leave(object sender, EventArgs e)
+        {
+            if (!textBoxCodProduto.Text.Equals(""))
+            {
+                Produto produto = conexoes.getProduto(textBoxCodProduto.Text);
+
+                if (produto != null)
+                {
+                    textBoxNomeProduto.Text = produto.Nome;
+                    textBoxDescProduto.Text = produto.Descricao;
+                    textBoxValorUnitario.Text = produto.ValorUnitario;
+                    comboBoxTpUnidade.Text = produto.TpUnidade;
+                    textBoxObservacao.Text = produto.Observacao;
+
+                    buttonCadastrar.Text = "Alterar";
+                }
+            }
+        }
+
+        public void limpa()
+        {
+            textBoxCodProduto.Text = "";
+            textBoxNomeProduto.Text = "";
+            textBoxDescProduto.Text = "";
+            textBoxValorUnitario.Text = "";
+            comboBoxTpUnidade.Text = "";
+            textBoxObservacao.Text = "";
+
+            buttonCadastrar.Text = "Cadastrar";
+        }
+
+        //METODO PARA CADASTRAR PRODUTO
+        public void cadastrarProduto()
+        {
+            Produto produto = new Produto();
+            produto.CodProduto = textBoxCodProduto.Text;
+            produto.Nome = textBoxNomeProduto.Text;
+            produto.Descricao = textBoxDescProduto.Text;
+            produto.ValorUnitario = textBoxValorUnitario.Text;
+            produto.TpUnidade = comboBoxTpUnidade.Text;
+            produto.Observacao = textBoxObservacao.Text;
+
+            ArrayList mensagens = valida.validaProduto(produto);
+
+            if (mensagens.Count > 0)
+            {
+                String mensagem = (String)mensagens[0];
+                MessageBox.Show(mensagem);
+            }
+            else
+            {
+                try
+                {
+                    bool insert = conexoes.insertProduto(produto);
+
+                    if (insert)
+                    {
+                        MessageBox.Show("Cadastro salvo com sucesso.");
+                        buttonCadastrar.Text = "Alterar";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao cadastro produto.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao cadastro produto.");
+                }
+            }
+        }
+
+        //METODO PARA UPDATE DO PRODUTO
+        public void updateProduto()
+        {
+            Produto produto = new Produto();
+            
+            produto.CodProduto = textBoxCodProduto.Text;
+            produto.Nome = textBoxNomeProduto.Text;
+            produto.Descricao = textBoxDescProduto.Text;
+            produto.ValorUnitario = textBoxValorUnitario.Text;
+            produto.TpUnidade = comboBoxTpUnidade.Text;
+            produto.Observacao = textBoxObservacao.Text;
+
+            ArrayList mensagens = valida.validaProduto(produto);
+
+            if (mensagens.Count > 0)
+            {
+                String mensagem = (String)mensagens[0];
+                MessageBox.Show(mensagem);
+            }
+            else
+            {
+                try
+                {
+                    bool insert = conexoes.updateProduto(produto);
+
+                    if (insert)
+                    {
+                        MessageBox.Show("Alterações realizadas com sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao alterar produto.");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao alterar produto.");
+                }
+            }
+        }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+
+            if (!textBoxCodProduto.Text.Equals(""))
+            {
+                Estoque estoqueAtual = conexoes.getEstoque(textBoxCodProduto.Text);
+
+                if (estoqueAtual == null)
+                {
+                    if (MessageBox.Show("Deseja realmente excluir Produto?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) excluirProduto();
+                }
+                else
+                {
+                    double qtdAtual = Double.Parse(estoqueAtual.Quantidade);
+
+                    if (qtdAtual <= 0)
+                    {
+                        if (MessageBox.Show("Deseja realmente excluir Produto?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) excluirProduto();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel excluir, existe produto em estoque. Saldo Atual: " + qtdAtual);
+                    }
+                }
+            }
+        }
+
+        private void excluirProduto()
+        {
+            if(!textBoxCodProduto.Text.Equals("")){
+                bool isExcluido = conexoes.excluirProduto(textBoxCodProduto.Text);
+
+                if (isExcluido)
+                {
+                    MessageBox.Show("Produto excluido com sucesso.");
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir produto.");
+                }
+            }
+        }
+    }
+}

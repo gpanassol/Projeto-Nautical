@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Projeto
+{
+    public partial class FormAlterarSenha : Form
+    {
+        private PoolConexoes conexoes = new PoolConexoes();
+        private Usuario cacheUsuario = null;
+
+        public FormAlterarSenha()
+        {
+            InitializeComponent();
+        }
+
+        internal Usuario CacheUsuario
+        {
+            get { return cacheUsuario; }
+            set { cacheUsuario = value; }
+        }
+
+        private void buttonLimpar_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
+        private void limpar()
+        {
+            textBoxConfirmarNovaSenha.Text = "";
+            textBoxNovaSenha.Text = "";
+            textBoxSenhaAtual.Text = "";
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            if (textBoxNovaSenha.Text.Equals(textBoxConfirmarNovaSenha.Text))
+            {
+                alterarSenha();
+            }
+            else
+            {
+                MessageBox.Show("Senhas estão diferentes.");
+            }
+        }
+
+        private void alterarSenha()
+        {
+
+            if (textBoxSenhaAtual.Text.Equals(cacheUsuario.Senha))
+            {
+                cacheUsuario.Senha = textBoxNovaSenha.Text;
+                Boolean isAlterado = conexoes.updateUsuario(cacheUsuario);
+
+                if (isAlterado)
+                {
+                    MessageBox.Show("Senha Alterado com sucesso.");
+                    limpar();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar Senha.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Senha errada.");
+            }
+
+        }
+    }
+}

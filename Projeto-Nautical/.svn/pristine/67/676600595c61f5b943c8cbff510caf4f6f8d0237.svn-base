@@ -1,0 +1,529 @@
+﻿using System;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Data.SqlClient;
+
+namespace Projeto
+{
+    class PoolConexoes
+    {
+        //@ para reconhecer o caminho
+        //String caminho = @"Data Source=.\SQLEXPRESS;AttachDbFilename=C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\DatabaseEstoque.mdf;Integrated Security=True;User Instance=True";
+        
+        String caminho =  Projeto.Properties.Settings.Default.DatabaseEstoqueConnectionString;
+
+        //METODO INSERE NOVO USUARIO
+        public bool insertUsuario(Usuario usuario)
+        {
+
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "insert into Usuario(matricula, nome, endereco, telefone, rg, cpf, sexo, login, senha, permissao) " +
+                             " values (@matricula, @nome, @endereco, @telefone, @rg, @cpf, @sexo, @login, @senha, @permissao) ";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("matricula", usuario.Matricula);
+                comando.Parameters.AddWithValue("nome", usuario.Nome);
+                comando.Parameters.AddWithValue("endereco", usuario.Endereco);
+                comando.Parameters.AddWithValue("telefone", usuario.Telefone);
+                comando.Parameters.AddWithValue("rg", usuario.Rg);
+                comando.Parameters.AddWithValue("cpf", usuario.Cpf);
+                comando.Parameters.AddWithValue("sexo", usuario.Sexo);
+                comando.Parameters.AddWithValue("login", usuario.Login);
+                comando.Parameters.AddWithValue("senha", usuario.Senha);
+                comando.Parameters.AddWithValue("permissao", usuario.Permissao);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        //METODO INSERE NOVO PRODUTO
+        public bool insertProduto(Produto produto)
+        {
+
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "insert into Produto(codProduto, nome, descricao, tipoUnidade, observacao, valorUnitario) " +
+                             " values (@codProduto, @nome, @descricao, @tipoUnidade, @observacao, @valorUnitario) ";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("codProduto", produto.CodProduto);
+                comando.Parameters.AddWithValue("nome", produto.Nome);
+                comando.Parameters.AddWithValue("descricao", produto.Descricao);
+                comando.Parameters.AddWithValue("valorUnitario", produto.ValorUnitario);
+                comando.Parameters.AddWithValue("tipoUnidade", produto.TpUnidade);
+                comando.Parameters.AddWithValue("observacao", produto.Observacao);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        //METODO BUSCA LOGIN TENDO COMO PARAMETRO LOGIN E SENHA
+        public Usuario getLogin(String login, String senha)
+        {
+            Usuario usuario = new Usuario();
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = " Select * From Usuario Where login = '" + login
+                       + "' AND senha = '" + senha + "'";
+
+            try
+            {
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                SqlDataReader dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    usuario.Matricula = dr[0].ToString();
+                    usuario.Nome = dr[1].ToString();
+                    usuario.Endereco = dr[2].ToString();
+                    usuario.Telefone = dr[3].ToString();
+                    usuario.Rg = dr[4].ToString();
+                    usuario.Cpf = dr[5].ToString();
+                    usuario.Sexo = dr[6].ToString();
+                    usuario.Login = dr[7].ToString();
+                    usuario.Senha = dr[8].ToString();
+                    usuario.Permissao = dr[9].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                conexao.Close();
+                return null;
+            }
+
+            conexao.Close();
+            return usuario;
+
+        }
+
+        //METODO INSERE NOVA SENHA
+        public void insertNewPassword(String novaSenha, String matricula)
+        {
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "insert into Usuario (Password) values (@novaSenha) ";
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("novaSenha", novaSenha);
+
+            comando.ExecuteNonQuery();
+
+            conexao.Close();
+        }
+
+        //METODO BUSCA PRODUTO TENDO COM PARAMETRO COD_PRODUTO
+        public ArrayList getProdutos(String codProduto)
+        {
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "SELECT * FROM Produto";
+
+            if (codProduto != null && !codProduto.Equals(""))
+            {
+                sql += " WHERE CodProduto = " + codProduto;
+            }
+
+
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            SqlDataReader dr = comando.ExecuteReader();
+
+            ArrayList arrProdutos = new ArrayList();
+
+            while (dr.Read())
+            {
+
+                Produto produto = new Produto();
+
+                produto.CodProduto = dr[0].ToString();
+                produto.Nome = dr[1].ToString();
+                produto.Descricao = dr[2].ToString();
+                produto.Observacao = dr[3].ToString();
+                produto.ValorUnitario = dr[4].ToString();
+                produto.TpUnidade = dr[5].ToString();
+
+                arrProdutos.Add(produto);
+            }
+
+            return arrProdutos;
+        }
+
+        //METODO BUSCA USUARIO TENDO COMO PARAMETRO MATRICULA E NOME
+        public ArrayList getUsuario(String matricula, String nome)
+        {
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "SELECT * FROM Usuario ";
+
+            if (!matricula.Equals("") || !nome.Equals(""))
+            {
+                sql += " WHERE ";
+
+                if (matricula != null && !matricula.Equals(""))
+                {
+                    sql += " matricula = " + matricula;
+                }
+
+                if (nome != null && !nome.Equals(""))
+                {
+                    sql += " nome LIKE '" + nome + "'";
+                }
+
+            }
+
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            SqlDataReader dr = comando.ExecuteReader();
+
+            ArrayList arrUsuario = new ArrayList();
+
+            while (dr.Read())
+            {
+
+                Usuario usuario = new Usuario();
+
+                usuario.Matricula = dr[0].ToString();
+                usuario.Nome = dr[1].ToString();
+                usuario.Endereco = dr[2].ToString();
+                usuario.Telefone = dr[3].ToString();
+                usuario.Rg = dr[4].ToString();
+                usuario.Cpf = dr[5].ToString();
+                usuario.Sexo = dr[6].ToString();
+                usuario.Login = dr[7].ToString();
+                usuario.Senha = dr[8].ToString();
+                usuario.Permissao = dr[9].ToString();
+
+
+                arrUsuario.Add(usuario);
+            }
+
+            return arrUsuario;
+        }
+
+        //METODO BUSCA USUARIO TENDO COMO PARAMETRO MATRICULA
+        public Usuario getUsuario(String matricula)
+        {
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "SELECT * FROM Usuario WHERE matricula = " + matricula;
+
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            SqlDataReader dr = comando.ExecuteReader();
+
+            Usuario usuario = null;
+
+            while (dr.Read())
+            {
+                usuario = new Usuario();
+
+                usuario.Matricula = dr[0].ToString();
+                usuario.Nome = dr[1].ToString();
+                usuario.Endereco = dr[2].ToString();
+                usuario.Telefone = dr[3].ToString();
+                usuario.Rg = dr[4].ToString();
+                usuario.Cpf = dr[5].ToString();
+                usuario.Sexo = dr[6].ToString();
+                usuario.Login = dr[7].ToString();
+                usuario.Senha = dr[8].ToString();
+                usuario.Permissao = dr[9].ToString();
+
+            }
+
+            return usuario;
+        }
+
+        //METODO PARA UPDATE USUARIO
+        public Boolean updateUsuario(Usuario usuario)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "update Usuario set matricula = @matricula, nome = @nome, endereco = @endereco, telefone = @telefone, rg = @rg, cpf = @cpf," +
+                " sexo = @sexo, login = @login, senha = @senha, permissao = @permissao " +
+                " WHERE matricula = '" + usuario.Matricula + "'";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("matricula", usuario.Matricula);
+                comando.Parameters.AddWithValue("nome", usuario.Nome);
+                comando.Parameters.AddWithValue("endereco", usuario.Endereco);
+                comando.Parameters.AddWithValue("telefone", usuario.Telefone);
+                comando.Parameters.AddWithValue("rg", usuario.Rg);
+                comando.Parameters.AddWithValue("cpf", usuario.Cpf);
+                comando.Parameters.AddWithValue("sexo", usuario.Sexo);
+                comando.Parameters.AddWithValue("login", usuario.Login);
+                comando.Parameters.AddWithValue("senha", usuario.Senha);
+                comando.Parameters.AddWithValue("permissao", usuario.Permissao);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        //METODO BUSCA PRODUTO ESPECIFICO
+        public Produto getProduto(String codProduto)
+        {
+            Produto produto = null;
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "SELECT * FROM Produto WHERE CodProduto = " + codProduto;
+
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            SqlDataReader dr = comando.ExecuteReader();
+
+            while (dr.Read())
+            {
+                produto = new Produto();
+
+                produto.CodProduto = dr[0].ToString();
+                produto.Nome = dr[1].ToString();
+                produto.Descricao = dr[2].ToString();
+                produto.ValorUnitario = dr[3].ToString();
+                produto.TpUnidade = dr[4].ToString();
+                produto.Observacao = dr[5].ToString();
+
+            }
+
+            return produto;
+        }
+
+        //METODO PARA UPDATE DO PRODUTO
+        public Boolean updateProduto(Produto produto)
+        {
+
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "UPDATE Produto  SET " +
+                    " codProduto = @codProduto, nome = @nome, descricao = @descricao, " +
+                    " valorUnitario = @valorUnitario, tipoUnidade = @tipoUnidade, observacao = @observacao " +
+                    " WHERE codProduto = '" + produto.CodProduto + "'";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("codProduto", produto.CodProduto);
+                comando.Parameters.AddWithValue("nome", produto.Nome);
+                comando.Parameters.AddWithValue("descricao", produto.Descricao);
+                comando.Parameters.AddWithValue("valorUnitario", produto.ValorUnitario);
+                comando.Parameters.AddWithValue("tipoUnidade", produto.TpUnidade);
+                comando.Parameters.AddWithValue("observacao", produto.Observacao);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        //METODO INSERE NOVOS REGISTRO NO ESTOQUE
+        public bool insertEntradaEstoque(Estoque estoque)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "insert into Estoque(codProduto, descricao, quantidade, valorUnitario, valorTotal) " +
+                             " values (@codProduto, @descricao, @quantidade, @valorUnitario, @valorTotal) ";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("codProduto", estoque.CodProduto);
+                comando.Parameters.AddWithValue("descricao", estoque.Descricao);
+                comando.Parameters.AddWithValue("quantidade", estoque.Quantidade);
+                comando.Parameters.AddWithValue("valorUnitario", estoque.ValorUnitario);
+                comando.Parameters.AddWithValue("valorTotal", estoque.ValorTotal);
+                
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        //RETORNA REGISTRO DE UM PRODUTO NO ESTOQUE
+        public Estoque getEstoque(String codProduto)
+        {
+            Estoque produtoEstoque = null;
+
+            SqlConnection conexao = new SqlConnection(caminho);
+            conexao.Open();
+
+            String sql = "SELECT * FROM Estoque WHERE CodProduto = " + codProduto;
+
+            SqlCommand comando = new SqlCommand(sql, conexao);
+            SqlDataReader dr = comando.ExecuteReader();
+
+            while (dr.Read())
+            {
+                produtoEstoque = new Estoque();
+
+                produtoEstoque.CodProduto = dr[0].ToString();
+                produtoEstoque.Descricao = dr[1].ToString();
+                produtoEstoque.Quantidade = dr[2].ToString();
+                produtoEstoque.ValorUnitario = dr[3].ToString();
+                produtoEstoque.ValorTotal = dr[4].ToString();
+            
+            }
+
+            return produtoEstoque;
+        }
+
+        //METODO ATUALIZA O ESTOQUE
+        public Boolean updateEstoque(Estoque estoque)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "UPDATE Estoque  SET " +
+                    " codProduto = @codProduto, descricao = @descricao, " +
+                    " quantidade = @quantidade, valorUnitario = @valorUnitario, valorTotal = @valorTotal" +
+                    " WHERE codProduto = '" + estoque.CodProduto + "'";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("codProduto", estoque.CodProduto);
+                comando.Parameters.AddWithValue("descricao", estoque.Descricao);
+                comando.Parameters.AddWithValue("quantidade", estoque.Quantidade);
+                comando.Parameters.AddWithValue("valorUnitario", estoque.ValorUnitario);
+                comando.Parameters.AddWithValue("valorTotal", estoque.ValorTotal);
+                
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception) {
+                return false;
+            }
+
+            return true;
+        }
+
+        //METODO REGISTRA OS MOVIMENTOS DO ESTOQUE (ENTRADA/SAIDA)
+        public bool insertRelatorioEstoque(Estoque estoque)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "insert into Estoque_Relatorio(codProduto, descricao, quantidade, valorUnitario, valorTotal, movimentacao) " +
+                             " values (@codProduto, @descricao, @quantidade, @valorUnitario, @valorTotal, @movimentacao) ";
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("codProduto", estoque.CodProduto);
+                comando.Parameters.AddWithValue("descricao", estoque.Descricao);
+                comando.Parameters.AddWithValue("quantidade", estoque.Quantidade);
+                comando.Parameters.AddWithValue("valorUnitario", estoque.ValorUnitario);
+                comando.Parameters.AddWithValue("valorTotal", estoque.ValorTotal);
+                comando.Parameters.AddWithValue("movimentacao", estoque.Movimentacao);
+
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        //METODO PARA DELETAR USUARIO
+        public bool excluirUsuario(String matricula)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "DELETE FROM Usuario Where matricula = " + matricula;
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+            
+        }
+
+        //METODO PARA DELETAR PRODUTO
+        public bool excluirProduto(String codProduto)
+        {
+            try
+            {
+                SqlConnection conexao = new SqlConnection(caminho);
+                conexao.Open();
+
+                String sql = "DELETE FROM Produto Where codProduto = " + codProduto;
+
+                SqlCommand comando = new SqlCommand(sql, conexao);
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+    }
+}

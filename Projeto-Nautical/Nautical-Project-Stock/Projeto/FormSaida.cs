@@ -1,0 +1,177 @@
+﻿using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Projeto
+{
+    public partial class FormSaida : Form
+    {
+        private PoolConexoes pool = new PoolConexoes();
+        private ValidaFormulario valida = new ValidaFormulario();
+        private Produto produto = null;
+
+        public FormSaida()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonRegistrar_Click(object sender, EventArgs e)
+        {
+            Estoque estoque = pool.getEstoque(produto.CodProduto);
+
+            Boolean isDisponivel = verificaQtdEstoque(estoque);
+
+            if (isDisponivel)
+            {
+                //CONTROLE DA QUANTIDADE DE PRODUTOS EM ESTOQUE
+                double qtdEstoque = Double.Parse(estoque.Quantidade);
+                double qtdSaida = Double.Parse(textBoxQtd.Text);
+                double total = qtdEstoque - qtdSaida;
+
+                //CONTROLE DO SALDO TOTAL DE PRODUTOS
+                double vlUnit = Double.Parse(produto.ValorUnitario);
+                double vltotal = vlUnit * total;
+
+                Estoque nvEstoque = new Estoque();
+                nvEstoque.CodProduto = textBoxCodProduto.Text;
+                nvEstoque.Descricao = textBoxDescricao.Text;
+                nvEstoque.ValorUnitario = textBoxValorUnit.Text;
+                nvEstoque.Quantidade = total.ToString();
+                nvEstoque.ValorTotal = vltotal.ToString();
+
+                ArrayList mensagens = valida.validaEstoque(nvEstoque);
+
+                if (mensagens.Count > 0)
+                {
+                    String mensagem = (String)mensagens[0];
+                    MessageBox.Show(mensagem);
+                }
+                else
+                {
+                    try
+                    {
+                        bool insert = pool.updateEstoque(nvEstoque);
+                        gerarRelatorioEstoque();
+
+                        if (insert)
+                        {
+                            MessageBox.Show("Saida registrada com sucesso.");
+                            limpar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro ao registrar saida.");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Erro ao registrar saida.");
+                    }
+
+
+
+                }
+            }
+        }
+
+        //Verifica Saldo Disponivel
+        private Boolean verificaQtdEstoque(Estoque estoque)
+        {
+            if (estoque != null)
+            {
+                int qtdAtualEst = int.Parse(estoque.Quantidade);
+                int qtdSaida = int.Parse(textBoxQtd.Text);
+
+                if (qtdAtualEst < qtdSaida)
+                {
+                    MessageBox.Show("Qtd. Indisponivel. Total em Estoque: " + qtdAtualEst);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Produto não disponivel em estoque.");
+                return false;
+            }
+        }
+
+        //METODO RESPONSAVEL POR LIMPAR CAMPOS
+        private void limpar()
+        {
+            textBoxCodProduto.Text = "";
+            textBoxDescricao.Text = "";
+            textBoxQtd.Text = "1";
+            textBoxValorUnit.Text = "";
+            textBoxValorTotal.Text = "";
+        }
+
+        //METODO PARA INTERESSAO DO CAMPO COD_PRODUTO
+        private void textBoxCodProduto_Leave(object sender, EventArgs e)
+        {
+            if (!textBoxCodProduto.Text.Equals(""))
+            {
+                produto = pool.getProduto(textBoxCodProduto.Text);
+
+                if (produto != null)
+                {
+                    textBoxDescricao.Text = produto.Descricao;
+                    textBoxValorUnit.Text = produto.ValorUnitario;
+                    textBoxValorTotal.Text = produto.ValorUnitario;
+                }
+            }
+        }
+
+        //METODO PARA INTERESSAO DO CAMPO QTD
+        private void textBoxQtd_Leave(object sender, EventArgs e)
+        {
+            if (!textBoxQtd.Text.Equals(""))
+            {
+                Double qtd = Double.Parse(textBoxQtd.Text);
+
+                if (qtd > 0)
+                {
+                    Double vlUnit = Double.Parse(textBoxValorUnit.Text);
+
+                    Double vlTotal = vlUnit * qtd;
+
+                    textBoxValorTotal.Text = vlTotal.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Quantidade deve ser maior que zero.");
+                }
+            }
+        }
+
+        //METODO GERA RELATORIO DE SAIDAS DO ESTOQUE
+        private void gerarRelatorioEstoque()
+        {
+            EstoqueRelatorio estoque = new EstoqueRelatorio();
+            estoque.CodProduto = textBoxCodProduto.Text;
+            estoque.Descricao = textBoxDescricao.Text;
+            
+            //REGISTRA VALOR NEGATIVO SIMULANDO SAIDA 
+            estoque.Quantidade = "-" + textBoxQtd.Text;
+            estoque.ValorUnitario = "-" + textBoxValorUnit.Text; 
+            estoque.ValorTotal = "-" + textBoxValorTotal.Text;
+
+            estoque.Movimentacao = "SAIDA";
+
+            pool.insertRelatorioEstoque(estoque);
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

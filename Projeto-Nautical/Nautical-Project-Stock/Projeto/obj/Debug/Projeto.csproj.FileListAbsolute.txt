@@ -1,0 +1,174 @@
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Desktop\Projeto\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\Gabriel\Desktop\Projeto\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\Gabriel\Desktop\Projeto\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Gabriel\Desktop\Projeto\Projeto\bin\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Projeto\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormSaidaProduto.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormEntradaProduto.resources
+C:\Users\Gabriel\Desktop\Projeto\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntradaProduto.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaidaProduto.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\a5130893\Desktop\Projeto Real\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntrada.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioProduto.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.cache
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.compiled
+C:\Users\Gabriel\Desktop\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaida.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntrada.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioProduto.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioUsuario.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaida.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.cache
+C:\Users\Gabriel\Desktop\Nautical\Nautical-Project-Stock\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.compiled
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntrada.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioProduto.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioUsuario.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaida.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.cache
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.compiled
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioEstoque.resources
+C:\Users\a5130893\Desktop\Projeto\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioTotal.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaFornecedor.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaMovimentacao.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultarEstoque.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntrada.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraFornecedor.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioEstoque.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioProduto.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioTotal.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioUsuario.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaida.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.cache
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.compiled
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\Gabriel\Desktop\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe.config
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.exe
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.pdb
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque.mdf
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\DatabaseEstoque_log.ldf
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.exe
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\bin\Debug\Projeto.pdb
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormAlterarSenha.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraProduto.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastroUsuario.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaFornecedor.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaMovimentacao.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaProduto.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultarEstoque.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormConsultaUsuario.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormEntrada.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormCadastraFornecedor.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormLogin.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipal.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormPrincipalOperacional.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioEstoque.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioProduto.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioTotal.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormRelatorioUsuario.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.FormSaida.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.Properties.Resources.resources
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\Projeto.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.cache
+C:\Users\Gabriel\Pessoal\Projeto-Nautical\Projeto-Nautical\Nautical-Project-Stock\Projeto\obj\Debug\RdlCompile.compiled
